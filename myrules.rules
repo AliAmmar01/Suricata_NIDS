@@ -1,0 +1,6 @@
+alert tcp any any -> $HOME_NET 3389 (msg:"RDP Connection Initiation"; sid:1;)
+alert icmp any any -> $HOME_NET any (msg:"ICMP Ping Request"; sid:2; rev:1;)
+alert icmp $HOME_NET any -> any any (msg:"ICMP Ping Reply"; sid:3; rev:1;)
+alert tcp any any -> $HOME_NET 23 (msg:"TELNET Connection Attempt"; sid:4; rev:1;)
+alert tcp any any -> $HOME_NET 22 (msg:"SSH Handshake"; sid:5; rev:1;)
+
